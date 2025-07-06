@@ -39,6 +39,34 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
+      floatingActionButton: Row(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Color(0xFFEAD8A4),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFF68537)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFF68537)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          FloatingActionButton(
+            onPressed: () => {},
+            backgroundColor: Color(0xFFF68537),
+            child: Icon(Icons.add, size: 30),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -26,4 +26,7 @@ A simple and customizable To-Do List app built with Flutter.
    flutter run
    ```
 ---
-![Simulator Screenshot - iPhone 16 Pro Max - 2025-07-06 at 17 23 02](https://github.com/user-attachments/assets/b324a40d-554f-44a1-b497-c0bbee47fbcf)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/b324a40d-554f-44a1-b497-c0bbee47fbcf" width="50%" alt="Todo List App Screenshot">
+</div>
+

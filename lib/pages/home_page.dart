@@ -37,14 +37,34 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Todo List App'),
         backgroundColor: const Color(0xFFD6D85D),
       ),
-      body: ListView.builder(
-        itemCount: todoList.length,
-        itemBuilder: (BuildContext context, index) {
-          return TodoList(
-            task: todoList[index],
-            onChanged: (value) => checkBoxChanged(index),
-          );
-        },
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: todoList.length,
+              itemBuilder: (BuildContext context, index) {
+                return TodoList(
+                  task: todoList[index],
+                  onChanged: (value) => checkBoxChanged(index),
+                );
+              },
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(vertical: 5),
+            color: const Color(0xFFD6D85D),
+            child: Text(
+              "© 2025 Joebert L. Cerezo • Todo List App",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2),

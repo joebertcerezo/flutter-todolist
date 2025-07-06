@@ -31,7 +31,6 @@ class TodoList extends StatelessWidget {
             SlidableAction(
               onPressed: onDelete,
               icon: Icons.delete,
-              spacing: 0,
               borderRadius: BorderRadius.circular(10),
               backgroundColor: Colors.red,
               label: "Delete",

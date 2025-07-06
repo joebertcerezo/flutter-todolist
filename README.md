@@ -27,7 +27,5 @@ A simple and customizable To-Do List app built with Flutter.
    ```
 ---
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/15c4d3c6-02e8-4ef6-ae3b-6adbe4e35315" width="50%" alt="Todo List App Screenshot">
+  <img src="https://github.com/user-attachments/assets/eac98909-c94e-4113-937c-37f4b3c0bf5b" width="50%" alt="Todo List App Screenshot">
 </div>
-
-

@@ -4,7 +4,8 @@ class ToDoItem {
   String title;
   bool isCompleted;
 
-  ToDoItem(this.title, this.isCompleted);
+  // ToDoItem(this.title, [this.isCompleted = false]);
+  ToDoItem({required this.title, this.isCompleted = false});
 }
 
 class TodoList extends StatelessWidget {

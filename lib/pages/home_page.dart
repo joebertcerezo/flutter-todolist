@@ -74,51 +74,37 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 2),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      hintText: "Add more todo...",
-                      filled: true,
-                      fillColor: Color(0xFFEAD8A4),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFF68537)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFF68537)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          spacing: 20,
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  hintText: "Add more todo...",
+                  filled: true,
+                  fillColor: Color(0xFFEAD8A4),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFF68537)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFF68537)),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              FloatingActionButton(
-                onPressed: saveTask,
-                backgroundColor: Color(0xFFF68537),
-                child: Icon(Icons.add, size: 30),
-              ),
-            ],
-          ),
+            ),
+            FloatingActionButton(
+              onPressed: saveTask,
+              backgroundColor: const Color(0xFFF68537),
+              child: const Icon(Icons.add, size: 30),
+            ),
+          ],
         ),
       ),
-      // bottomSheet: BottomSheet(
-      //   onClosing: () => {},
-      //   builder: (BuildContext context) {
-      //     return Container(
-      //       height: 50,
-      //       color: const Color(0xFFEAD8A4),
-      //       child: const Center(child: Text('Made by: Joebert L. Cerezo')),
-      //     );
-      //   },
-      // ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

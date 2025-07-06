@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   final List<ToDoItem> todoList = [
     ToDoItem(title: "Wash Dishes", isCompleted: false),
     ToDoItem(title: "Walk the Dog", isCompleted: true),
-    ToDoItem(title: "Buy Groceries", isCompleted: false),
+    ToDoItem(title: "Buy Groceries"),
   ];
 
   void checkBoxChanged(int index) {
@@ -22,9 +22,15 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void deleteTask(int index) {
+    setState(() {
+      todoList.removeAt(index);
+    });
+  }
+
   void saveTask() {
     setState(() {
-      todoList.add(ToDoItem(title: _controller.text));
+      todoList.add(ToDoItem(title: _controller.text.trim()));
       _controller.clear();
     });
   }
@@ -45,7 +51,8 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (BuildContext context, index) {
                 return TodoList(
                   task: todoList[index],
-                  onChanged: (value) => checkBoxChanged(index),
+                  onChanged: (context) => checkBoxChanged(index),
+                  onDelete: (context) => deleteTask(index),
                 );
               },
             ),
@@ -68,35 +75,38 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2),
-        child: Row(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: TextField(
-                  controller: _controller,
-                  decoration: InputDecoration(
-                    hintText: "Add more todo...",
-                    filled: true,
-                    fillColor: Color(0xFFEAD8A4),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFFF68537)),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFFF68537)),
-                      borderRadius: BorderRadius.circular(10),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: TextField(
+                    controller: _controller,
+                    decoration: InputDecoration(
+                      hintText: "Add more todo...",
+                      filled: true,
+                      fillColor: Color(0xFFEAD8A4),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xFFF68537)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xFFF68537)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            FloatingActionButton(
-              onPressed: saveTask,
-              backgroundColor: Color(0xFFF68537),
-              child: Icon(Icons.add, size: 30),
-            ),
-          ],
+              FloatingActionButton(
+                onPressed: saveTask,
+                backgroundColor: Color(0xFFF68537),
+                child: Icon(Icons.add, size: 30),
+              ),
+            ],
+          ),
         ),
       ),
       // bottomSheet: BottomSheet(

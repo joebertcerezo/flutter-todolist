@@ -4,7 +4,7 @@ A simple and customizable To-Do List app built with Flutter.
 
 ## Features
 
-- Add, edit, and delete tasks
+- Add and delete tasks
 - Mark tasks as complete/incomplete
 - User-friendly interface
 

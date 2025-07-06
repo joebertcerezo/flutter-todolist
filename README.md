@@ -25,3 +25,5 @@ A simple and customizable To-Do List app built with Flutter.
    ```bash
    flutter run
    ```
+---
+![Simulator Screenshot - iPhone 16 Pro Max - 2025-07-06 at 17 23 02](https://github.com/user-attachments/assets/b324a40d-554f-44a1-b497-c0bbee47fbcf)

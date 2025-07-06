@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
+  String? _errorText;
+
   final List<ToDoItem> todoList = [
     ToDoItem(title: "Wash Dishes", isCompleted: false),
     ToDoItem(title: "Walk the Dog", isCompleted: true),
@@ -30,8 +32,22 @@ class _HomePageState extends State<HomePage> {
 
   void saveTask() {
     setState(() {
+      if (_controller.value.text.isEmpty ||
+          _controller.value.text.trim().isEmpty) {
+        _errorText = "Must not be empty";
+        return;
+      }
+      _errorText = null;
       todoList.add(ToDoItem(title: _controller.text.trim()));
       _controller.clear();
+    });
+  }
+
+  void clearOnChanged(String text) {
+    setState(() {
+      if (text.isNotEmpty) {
+        _errorText = null;
+      }
     });
   }
 
@@ -80,9 +96,11 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               child: TextField(
+                onChanged: (text) => clearOnChanged(text),
                 controller: _controller,
                 decoration: InputDecoration(
                   hintText: "Add more todo...",
+                  errorText: _errorText,
                   filled: true,
                   fillColor: Color(0xFFEAD8A4),
                   enabledBorder: OutlineInputBorder(
